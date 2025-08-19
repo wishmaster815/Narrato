@@ -1,5 +1,4 @@
 from langgraph.graph import START, END, StateGraph
-from src.llms.groqllm import GroqLLM
 from src.states.blog_state import BlogState
 from src.nodes.blog_node import BlogNode
 class GraphBuilder:
@@ -23,3 +22,7 @@ class GraphBuilder:
         self.builder.add_edge("content_generator", END)
         
         return self.builder
+    
+    def setup_graph(self, usecase:str):
+        if usecase == "topic":
+            return self.build_topic_graph().compile()
