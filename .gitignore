@@ -11,3 +11,4 @@ wheels/
 
 # envs
 .env
+.langgraph_api
